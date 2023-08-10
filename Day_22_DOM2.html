@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <style></style>
+  <script>
+    // creating div container :
+    let mainDiv = document.createElement("div");
+    document.body.appendChild(mainDiv);
+    mainDiv.className = "maindiv";
+
+    let h1 = document.createElement("h1");
+    mainDiv.appendChild(h1);
+    h1.innerHTML = "Number Generator";
+    let divContainer = document.createElement("div");
+    mainDiv.appendChild(divContainer);
+    divContainer.style.width = "800px";
+    divContainer.style.display = "flex";
+    divContainer.style.flexWrap = "wrap";
+    divContainer.style.gap = "10px";
+    divContainer.style.margin = "0 auto";
+    h1.style.textAlign = "center";
+    document.body.style.backgroundColor = "black";
+    h1.style.color = "white";
+    document.body.style.fontFamily = "Fira Mono";
+
+    for (let i = 0; i <= 101; i++) {
+      let divi = document.createElement("div");
+      divi.innerHTML = i;
+      divi.style.width = "25px";
+      divi.style.height = "25px";
+      divi.style.padding = "10px 30px";
+      divi.style.textAlign = "center";
+      divi.style.justifyContent = "center";
+      divi.style.marginBottom = "10px";
+      divi.style.fontSize = "1.5rem";
+      divi.style.fontWeight = "bolder";
+      divi.style.borderRadius="10px"
+       
+
+      divContainer.appendChild(divi);
+
+      if (isPrime(i)) {
+        divi.style.backgroundColor = "red";
+      } else if (i % 2 == 0) {
+        divi.style.backgroundColor = "green";
+      } else if (i % 2 == 1) {
+        divi.style.backgroundColor = "yellow";
+      }
+    }
+
+    function isPrime(num) {
+      if (num == 2) {
+        return true;
+      }
+      let count = 0;
+      for (let i = 2; i <= num; i++) {
+        if (num % i == 0) {
+          count++;
+        }
+      }
+      if (count == 1) {
+        return true;
+      }
+    }
+  </script>
+</html>
