@@ -1,0 +1,174 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>JavaScript for Everyone:DOM</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Asabeneh Yetayeh challenges in 2020</h1>
+      <h2>30DaysOfJavaScript Challenge</h2>
+      <div class="timediv">
+        <span class="time"></span>
+      </div>
+
+      <ul>
+        <li>30DaysOfPython Challenge Done</li>
+        <li>30DaysOfJavaScript Challenge Ongoing</li>
+        <li>30DaysOfReact Challenge Coming</li>
+        <li>30DaysOfFullStack Challenge Coming</li>
+        <li>30DaysOfDataAnalysis Challenge Coming</li>
+        <li>30DaysOfReactNative Challenge Coming</li>
+        <li>30DaysOfMachineLearning Challenge Coming</li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    // task 1: the year color is changing every 1 secounds :
+    // increase the size of year of 2020 :
+
+    let title = document.querySelector("h1");
+    title.style.textAlign = "center";
+    let secoundtitle = document.querySelector("h2");
+    secoundtitle.style.textAlign = "center";
+
+    title.innerHTML = title.textContent.replace(
+      "2020",
+      '<span style="font-size: 3rem;">2020</span>'
+    );
+
+    let year = document.querySelector("span");
+    setInterval(() => {
+      let colors = [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "purple",
+        "pink",
+        "brown",
+        "cyan",
+        "magenta",
+        "teal",
+        "indigo",
+      ];
+      let index = Math.floor(Math.random() * colors.length);
+      year.style.color = colors[index];
+    }, 200);
+
+    function getRandomColor() {
+      let hexaLetter = "ABCEDEF0123456789";
+      let random = Math.floor(Math.random() * 16);
+      let hexaColor = "#";
+      for (let i = 0; i < 6; i++) {
+        hexaColor += hexaLetter[random];
+      }
+      return hexaColor;
+    }
+
+    // task 2: the date and time background color is changing every on secounds
+
+    let time = document.querySelector(".time");
+    let span = document.querySelectorAll("span");
+    time.style.marginLeft = "10rem";
+    time.style.marginTop = "5rem";
+
+    setInterval(() => {
+      let now = new Date();
+      // month date year hour min sec
+      let month = now.getMonth();
+      let date = now.getDate().toString().padStart(2, "0");
+      let fullYear = now.getFullYear();
+      let hour = now.getHours().toString().padStart(2, "0");
+      let minutes = now.getMinutes().toString().padStart(2, "0");
+      let secounds = now.getSeconds().toString().padStart(2, "0");
+      let monthName = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "Ocotober",
+        "November",
+        "December",
+      ];
+      let getMonthName = monthName[month + 1];
+      let currentTime =
+        getMonthName +
+        " " +
+        date +
+        ", " +
+        fullYear +
+        " " +
+        hour +
+        ":" +
+        minutes +
+        ":" +
+        secounds;
+      time.innerHTML = currentTime;
+    }, 1000);
+
+    setInterval(() => {
+      let colors = [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "purple",
+        "pink",
+        "brown",
+        "cyan",
+        "magenta",
+        "teal",
+        "indigo",
+      ];
+      let index = Math.floor(Math.random() * colors.length);
+      time.style.backgroundColor = colors[index];
+      time.style.padding = "10px 3rem";
+      time.style.borderRadius = "10px";
+      time.style.fontSize = "1.5rem";
+      time.style.fontWeight = "bolder";
+    }, 200);
+
+    // task 3: completeed challenge has background green
+    let li = document.querySelectorAll("li");
+    let ul = document.querySelector("ul");
+    ul.style.listStyleType = "none";
+
+    for (let i = 0; i < li.length; i++) {
+      li[i].style.padding = "20px";
+      li[i].style.borderRadius = "10px";
+      li[i].style.listStyleType = "none";
+      li[i].style.marginBottom = "14px";
+      li[i].style.fontSize = "1.4rem";
+
+      if (i == 0) {
+        li[i].style.backgroundColor = "green";
+        li[i].style.marginTop = "3rem";
+      } else if (i == 1) {
+        li[i].style.backgroundColor = "yellow";
+      } else {
+        li[i].style.backgroundColor = "red";
+      }
+    }
+
+    // get main div .wrapper
+    let mainDiv = document.querySelector(".wrapper");
+
+    mainDiv.style.width = "700px";
+    mainDiv.style.margin = "0 auto";
+
+    let body = document.querySelector("body");
+    body.style.backgroundColor = "black";
+    body.style.color = "white";
+    body.style.fontFamily = "Calibri, sans-serif";
+    // task 4: ongoing challenge has background yellow
+    // task 5 : coming challenges have background red :
+  </script>
+</html>
