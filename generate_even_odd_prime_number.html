@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" placeholder="Enter a number" />
+    <button>Generate Number</button>
+  </body>
+  <script>
+    function isprime(num) {
+      let ans;
+      let count = 0;
+      if (num === 2) {
+        ans = true;
+      } else {
+        for (let i = 2; i <= num; i++) {
+          if (num % i === 0) {
+            count++;
+          }
+        }
+      }
+
+      if (count == 1) {
+        ans = true;
+      }
+      return ans || false;
+    }
+    document.body.style.backgroundColor = "#445069";
+
+    let input = document.querySelector("input");
+    let button = document.querySelector("button");
+    let ans = document.createElement("div");
+    let search = document.createElement("div");
+    let maindiv = document.createElement("div");
+    document.body.appendChild(maindiv);
+    maindiv.appendChild(search);
+    maindiv.appendChild(ans);
+
+    search.appendChild(input);
+    search.appendChild(button);
+
+    maindiv.style.width="800px"
+    maindiv.style.margin="0 auto"
+    input.style.borderRadius="30px"
+    input.style.padding="10px 5rem 10px 30px"
+    button.style.borderRadius = "30px";
+    button.style.padding="10px"
+    button.style.marginLeft="2rem"
+    
+    search.style.textAlign="center"
+    search.style.marginTop="2rem"
+    button.style.backgroundColor="black"
+    button.style.color="white"
+    button.style.fontSize="1rem"
+    button.style.fontWeight="bolder"
+
+    input.style.fontWeight="bolder"
+    input.style.fontSize="1rem"
+    button.style.padding="10px 20px 10px 20px"
+    input.style.textAlign="left"
+    button.style.textAlign="center"
+    
+    
+
+    ans.style.display = "grid";
+    ans.style.gridTemplateColumns = "repeat(10,1fr)";
+
+    // -------------------------------------------------
+    button.addEventListener("click", () => {
+      let nums = input.value;
+
+      for (let i = 0; i <= nums; i++) {
+        let divi = document.createElement("div");
+        ans.appendChild(divi);
+        divi.innerHTML = i;
+        divi.style.fontSize = "2.5rem";
+        divi.style.fontWeight = "bolder";
+        divi.style.margin = "2rem .5rem";
+        divi.style.padding = ".5rem";
+        divi.style.borderRadius = "40px";
+        // divi.style.display="flex"
+        divi.style.textAlign = "center";
+        divi.style.alignItems = "center";
+
+        if (isprime(i)) {
+          divi.style.backgroundColor = "red";
+        } else if (i % 2 == 0) {
+          divi.style.backgroundColor = "green";
+        } else if (i % 2 !== 0) {
+          divi.style.backgroundColor = "yellow";
+        }
+      }
+    });
+    // ------------------------------------------------------------
+  </script>
+</html>
