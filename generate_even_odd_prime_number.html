@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -35,6 +35,15 @@
     let ans = document.createElement("div");
     let search = document.createElement("div");
     let maindiv = document.createElement("div");
+    let title= document.createElement("h1")
+    title.style.textAlign="center"
+    title.style.fontFamily="Arial"
+    title.style.textShadow="10px 5px 30px white"
+    title.style.fontWeight="bolder"
+    title.style.fontSize="3rem"
+
+    maindiv.appendChild(title)
+    title.innerHTML="Number Generator"
     document.body.appendChild(maindiv);
     maindiv.appendChild(search);
     maindiv.appendChild(ans);
@@ -63,6 +72,7 @@
     input.style.textAlign="left"
     button.style.textAlign="center"
     
+
     
 
     ans.style.display = "grid";
@@ -86,14 +96,15 @@
         divi.style.alignItems = "center";
 
         if (isprime(i)) {
-          divi.style.backgroundColor = "red";
+          divi.style.backgroundColor = "#512B81";
         } else if (i % 2 == 0) {
-          divi.style.backgroundColor = "green";
+          divi.style.backgroundColor = "lightpink";
         } else if (i % 2 !== 0) {
-          divi.style.backgroundColor = "yellow";
+          divi.style.backgroundColor = "lightgreen";
         }
       }
     });
+    
     // ------------------------------------------------------------
   </script>
 </html>
