@@ -1,4 +1,4 @@
-<!-- index.html -->
+ <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,17 +26,18 @@
   <script>
     // task 1: the year color is changing every 1 secounds :
     // increase the size of year of 2020 :
-
     let title = document.querySelector("h1");
     title.style.textAlign = "center";
-    let secoundtitle = document.querySelector("h2");
-    secoundtitle.style.textAlign = "center";
-
     title.innerHTML = title.textContent.replace(
       "2020",
       '<span style="font-size: 3rem;">2020</span>'
     );
 
+    // second title
+    let secoundtitle = document.querySelector("h2");
+    secoundtitle.style.textAlign = "center";
+
+    // here span tag conatin 2020 year with change the color each secounds :
     let year = document.querySelector("span");
     setInterval(() => {
       let colors = [
@@ -57,23 +58,26 @@
       year.style.color = colors[index];
     }, 200);
 
-    function getRandomColor() {
-      let hexaLetter = "ABCEDEF0123456789";
-      let random = Math.floor(Math.random() * 16);
-      let hexaColor = "#";
-      for (let i = 0; i < 6; i++) {
-        hexaColor += hexaLetter[random];
-      }
-      return hexaColor;
-    }
+    // task 2: the date and time background color is changing every on secounds :
 
-    // task 2: the date and time background color is changing every on secounds
-
+    // it's run continously  clock
     let time = document.querySelector(".time");
     let span = document.querySelectorAll("span");
-    time.style.marginLeft = "10rem";
-    time.style.marginTop = "5rem";
 
+    let monthName = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "Ocotober",
+      "November",
+      "December",
+    ];
     setInterval(() => {
       let now = new Date();
       // month date year hour min sec
@@ -83,20 +87,7 @@
       let hour = now.getHours().toString().padStart(2, "0");
       let minutes = now.getMinutes().toString().padStart(2, "0");
       let secounds = now.getSeconds().toString().padStart(2, "0");
-      let monthName = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "Ocotober",
-        "November",
-        "December",
-      ];
+
       let getMonthName = monthName[month + 1];
       let currentTime =
         getMonthName +
@@ -113,6 +104,7 @@
       time.innerHTML = currentTime;
     }, 1000);
 
+    // it's change the color eachsecounds :
     setInterval(() => {
       let colors = [
         "red",
@@ -130,16 +122,22 @@
       ];
       let index = Math.floor(Math.random() * colors.length);
       time.style.backgroundColor = colors[index];
-      time.style.padding = "10px 3rem";
+      time.style.padding = "10px 1rem";
       time.style.borderRadius = "10px";
       time.style.fontSize = "1.5rem";
       time.style.fontWeight = "bolder";
+
+      time.style.marginLeft = "37%";
+      time.style.textAlign = "center";
+      time.style.justifyContent = "center";
     }, 200);
 
     // task 3: completeed challenge has background green
     let li = document.querySelectorAll("li");
     let ul = document.querySelector("ul");
     ul.style.listStyleType = "none";
+
+    // add details in langauage :
 
     for (let i = 0; i < li.length; i++) {
       li[i].style.padding = "20px";
@@ -151,24 +149,650 @@
       if (i == 0) {
         li[i].style.backgroundColor = "green";
         li[i].style.marginTop = "3rem";
+
+        // add details and summary :
+        let details = document.createElement("details");
+        let summary = document.createElement("summary");
+        li[i].appendChild(details);
+        li[i].style.display = "flex";
+
+        details.appendChild(summary);
+        summary.innerHTML = "Python";
+
+        // details.style.display="inline"
+        // details.style.marginLeft="4rem"
+
+        let p = document.createElement("p");
+        details.appendChild(p);
+        //
+        p = document.createElement("p");
+        details.appendChild(p);
+
+        details.style.marginLeft = "18rem";
+        details.style.cursor = "pointer";
+
+        //  create a task comple  te or  not :
+
+        for (let j = 0; j < 5; j++) {
+          let pj = document.createElement("p");
+          details.appendChild(pj);
+          switch (j) {
+            case 0:
+              pj.innerHTML = "Algorithm";
+              break;
+            case 1:
+              pj.innerHTML = "Loops";
+              break;
+            case 2:
+              pj.innerHTML = "Data structure";
+              break;
+            case 3:
+              pj.innerHTML = "Dynamic Programming";
+              break;
+            case 4:
+              pj.innerHTML = "OOPS";
+              break;
+          }
+        }
+        let status = document.createElement("p");
+        status.innerHTML = "Done";
+        status.style.margin = "auto"; // Pushes the status to the right
+        li[i].appendChild(status);
       } else if (i == 1) {
         li[i].style.backgroundColor = "yellow";
-      } else {
+
+        // add details
+        let details = document.createElement("details");
+        let summary = document.createElement("summary");
+        li[i].appendChild(details);
+        li[i].style.display = "flex";
+
+        details.appendChild(summary);
+        summary.innerHTML = "Python";
+
+        // details.style.display="inline"
+        // details.style.marginLeft="4rem"
+
+        let p = document.createElement("p");
+        details.appendChild(p);
+        //
+        p = document.createElement("p");
+        details.appendChild(p);
+
+        details.style.marginLeft = "14.5rem";
+        details.style.cursor = "pointer";
+
+        for (let j = 0; j < 5; j++) {
+          let pj = document.createElement("p");
+          details.appendChild(pj);
+          switch (j) {
+            case 0:
+              pj.innerHTML = "Algorithm";
+              break;
+            case 1:
+              pj.innerHTML = "Loops";
+              break;
+            case 2:
+              pj.innerHTML = "Data structure";
+              break;
+            case 3:
+              pj.innerHTML = "Dynamic Programming";
+              break;
+            case 4:
+              pj.innerHTML = "OOPS";
+              break;
+          }
+        }
+        let status = document.createElement("p");
+        status.innerHTML = "Ongoing";
+        status.style.margin = "auto"; // Pushes the status to the right
+        li[i].appendChild(status);
+      } else if (i == 2) {
         li[i].style.backgroundColor = "red";
+        let details = document.createElement("details");
+        let summary = document.createElement("summary");
+        li[i].appendChild(details);
+        li[i].style.display = "flex";
+
+        details.appendChild(summary);
+        summary.innerHTML = "Python";
+
+        // details.style.display="inline"
+        // details.style.marginLeft="4rem"
+
+        let p = document.createElement("p");
+        details.appendChild(p);
+        //
+        p = document.createElement("p");
+        details.appendChild(p);
+
+        details.style.marginLeft = "17.5rem";
+        details.style.cursor = "pointer";
+
+        for (let j = 0; j < 5; j++) {
+          let pj = document.createElement("p");
+          details.appendChild(pj);
+          switch (j) {
+            case 0:
+              pj.innerHTML = "Algorithm";
+              break;
+            case 1:
+              pj.innerHTML = "Loops";
+              break;
+            case 2:
+              pj.innerHTML = "Data structure";
+              break;
+            case 3:
+              pj.innerHTML = "Dynamic Programming";
+              break;
+            case 4:
+              pj.innerHTML = "OOPS";
+              break;
+          }
+        }
+        let status = document.createElement("p");
+        status.innerHTML = "Coming";
+        status.style.margin = "auto"; // Pushes the status to the right
+        li[i].appendChild(status);
+      } else if (i == 3) {
+        li[i].style.backgroundColor = "red";
+
+        let details = document.createElement("details");
+        let summary = document.createElement("summary");
+        li[i].appendChild(details);
+        li[i].style.display = "flex";
+
+        details.appendChild(summary);
+        summary.innerHTML = "Python";
+
+        // details.style.display="inline"
+        // details.style.marginLeft="4rem"
+
+        let p = document.createElement("p");
+        details.appendChild(p);
+        //
+        p = document.createElement("p");
+        details.appendChild(p);
+
+        details.style.marginLeft = "15.6rem";
+        details.style.cursor = "pointer";
+
+        for (let j = 0; j < 5; j++) {
+          let pj = document.createElement("p");
+          details.appendChild(pj);
+          switch (j) {
+            case 0:
+              pj.innerHTML = "Algorithm";
+              break;
+            case 1:
+              pj.innerHTML = "Loops";
+              break;
+            case 2:
+              pj.innerHTML = "Data structure";
+              break;
+            case 3:
+              pj.innerHTML = "Dynamic Programming";
+              break;
+            case 4:
+              pj.innerHTML = "OOPS";
+              break;
+          }
+        }
+        let status = document.createElement("p");
+        status.innerHTML = "Coming";
+        status.style.margin = "auto"; // Pushes the status to the right
+        li[i].appendChild(status);
+      } else if (i == 4) {
+        li[i].style.backgroundColor = "red";
+
+        let details = document.createElement("details");
+        let summary = document.createElement("summary");
+        li[i].appendChild(details);
+        li[i].style.display = "flex";
+
+        details.appendChild(summary);
+        summary.innerHTML = "Python";
+
+        // details.style.display="inline"
+        // details.style.marginLeft="4rem"
+
+        let p = document.createElement("p");
+        details.appendChild(p);
+        //
+        p = document.createElement("p");
+        details.appendChild(p);
+
+        details.style.marginLeft = "13.3rem";
+        details.style.cursor = "pointer";
+
+        for (let j = 0; j < 5; j++) {
+          let pj = document.createElement("p");
+          details.appendChild(pj);
+          switch (j) {
+            case 0:
+              pj.innerHTML = "Algorithm";
+              break;
+            case 1:
+              pj.innerHTML = "Loops";
+              break;
+            case 2:
+              pj.innerHTML = "Data structure";
+              break;
+            case 3:
+              pj.innerHTML = "Dynamic Programming";
+              break;
+            case 4:
+              pj.innerHTML = "OOPS";
+              break;
+          }
+        }
+        let status = document.createElement("p");
+        status.innerHTML = "Coming";
+        status.style.margin = "auto"; // Pushes the status to the right
+        li[i].appendChild(status);
+      } else if (i == 5) {
+        li[i].style.backgroundColor = "red";
+
+        let details = document.createElement("details");
+        let summary = document.createElement("summary");
+        li[i].appendChild(details);
+        li[i].style.display = "flex";
+
+        details.appendChild(summary);
+        summary.innerHTML = "Python";
+
+        // details.style.display="inline"
+        // details.style.marginLeft="4rem"
+
+        let p = document.createElement("p");
+        details.appendChild(p);
+        //
+        p = document.createElement("p");
+        details.appendChild(p);
+
+        details.style.marginLeft = "13.8rem";
+        details.style.cursor = "pointer";
+
+        for (let j = 0; j < 5; j++) {
+          let pj = document.createElement("p");
+          details.appendChild(pj);
+          switch (j) {
+            case 0:
+              pj.innerHTML = "Algorithm";
+              break;
+            case 1:
+              pj.innerHTML = "Loops";
+              break;
+            case 2:
+              pj.innerHTML = "Data structure";
+              break;
+            case 3:
+              pj.innerHTML = "Dynamic Programming";
+              break;
+            case 4:
+              pj.innerHTML = "OOPS";
+              break;
+          }
+        }
+        let status = document.createElement("p");
+        status.innerHTML = "Coming";
+        status.style.margin = "auto"; // Pushes the status to the right
+        li[i].appendChild(status);
+      } else if (i == 6) {
+        li[i].style.backgroundColor = "red";
+
+        let details = document.createElement("details");
+        let summary = document.createElement("summary");
+        li[i].appendChild(details);
+        li[i].style.display = "flex";
+
+        details.appendChild(summary);
+        summary.innerHTML = "Python";
+
+        // details.style.display="inline"
+        // details.style.marginLeft="4rem"
+
+        let p = document.createElement("p");
+        details.appendChild(p);
+        //
+        p = document.createElement("p");
+        details.appendChild(p);
+
+        details.style.marginLeft = "10.7rem";
+        details.style.cursor = "pointer";
+
+        for (let j = 0; j < 5; j++) {
+          let pj = document.createElement("p");
+          details.appendChild(pj);
+          switch (j) {
+            case 0:
+              pj.innerHTML = "Algorithm";
+              break;
+            case 1:
+              pj.innerHTML = "Loops";
+              break;
+            case 2:
+              pj.innerHTML = "Data structure";
+              break;
+            case 3:
+              pj.innerHTML = "Dynamic Programming";
+              break;
+            case 4:
+              pj.innerHTML = "OOPS";
+              break;
+          }
+        }
+        let status = document.createElement("p");
+        status.innerHTML = "Coming";
+        status.style.margin = "auto"; // Pushes the status to the right
+        li[i].appendChild(status);
       }
     }
 
-    // get main div .wrapper
+    //  main div container to center :
     let mainDiv = document.querySelector(".wrapper");
+    let body = document.querySelector("body");
 
-    mainDiv.style.width = "700px";
+    mainDiv.style.width = "70%";
     mainDiv.style.margin = "0 auto";
 
-    let body = document.querySelector("body");
-    body.style.backgroundColor = "black";
-    body.style.color = "white";
+    body.style.color = "black";
     body.style.fontFamily = "Calibri, sans-serif";
-    // task 4: ongoing challenge has background yellow
-    // task 5 : coming challenges have background red :
+
+    // add the name
+    let name = document.createElement("div");
+    mainDiv.appendChild(name);
+    name.innerHTML = "Satyam Pawar";
+    name.style.textAlign = "center";
+    name.style.fontSize = "2rem";
+    name.style.fontWeight = "bolder";
+
+    // add the social media list inline :
+    let socialLIst = document.createElement("div");
+    mainDiv.appendChild(socialLIst);
+    socialLIst.style.display = "inline";
+    socialLIst.style.display = "flex";
+    socialLIst.style.textAlign = "center";
+    socialLIst.style.justifyContent = "center";
+    socialLIst.style.marginTop = "4px";
+
+    // add the github image image
+    let githubImage = document.createElement("img");
+    githubImage.src = "https://cdn-icons-png.flaticon.com/512/25/25231.png";
+    socialLIst.appendChild(githubImage);
+    githubImage.style.width = "35px";
+    githubImage.alt = "Github";
+
+    githubImage.addEventListener("click", () => {
+      let link = githubImage.alt;
+      if (link) {
+        window.open("https://github.com/sattupawar", "_blank");
+      }
+    });
+
+    // add the instagram image :
+    let instagramImage = document.createElement("img");
+    instagramImage.src =
+      "https://cdn-icons-png.flaticon.com/512/1384/1384063.png";
+    socialLIst.appendChild(instagramImage);
+    instagramImage.style.width = "35px";
+    instagramImage.style.marginLeft = "10px";
+    instagramImage.alt = "Instagram";
+    instagramImage.addEventListener("click", () => {
+      let link = instagramImage.alt;
+      if (link) {
+        window.open("https://www.instagram.com/sattu_13_7/", "_blank");
+      }
+    });
+
+    // add the linkedin image with link :
+    let facebookImage = document.createElement("img");
+    socialLIst.appendChild(facebookImage);
+    facebookImage.src =
+      "https://cdn-icons-png.flaticon.com/512/5968/5968764.png";
+    facebookImage.alt = "facebook";
+    facebookImage.style.width = "35px";
+    facebookImage.style.marginLeft = "10px";
+
+    facebookImage.addEventListener("click", () => {
+      let link = facebookImage.alt;
+      if (link) {
+        window.open(
+          "https://www.facebook.com/satyampawar00720020713",
+          "_blank"
+        );
+      }
+    });
+
+    // create header :
+    let footerText = document.createElement("p");
+    footerText.innerHTML =
+      "👋 I'm dedicated web developer and lifelong learner currently pursuing a Bachelor's degree in Computer Application.";
+    mainDiv.appendChild(footerText);
+    footerText.style.textAlign = "center";
+
+    // create a div :
+    let coingKnowledge = document.createElement("div");
+    mainDiv.appendChild(coingKnowledge);
+    coingKnowledge.innerHTML = "Titles";
+    coingKnowledge.style.fontSize = "2rem";
+    coingKnowledge.style.fontWeight = "bolder";
+    coingKnowledge.style.marginLeft="3rem"
+
+    // add the p tag appendchild to coingknowledge:
+    let educator = document.createElement("p");
+    coingKnowledge.appendChild(educator);
+    educator.innerHTML = "Educator";
+    educator.style.fontSize = "1.5rem";
+    educator.style.fontWeight = "lighter";
+
+    let programmer = document.createElement("p");
+    coingKnowledge.appendChild(programmer);
+    programmer.innerHTML = "Programmer";
+    programmer.style.fontSize = "1.5rem";
+    programmer.style.fontWeight = "lighter";
+
+    let Developer = document.createElement("p");
+    coingKnowledge.appendChild(Developer);
+    Developer.innerHTML = "Developer";
+    Developer.style.fontSize = "1.5rem";
+    Developer.style.fontWeight = "lighter";
+
+    let Motivator = document.createElement("p");
+    coingKnowledge.appendChild(Motivator);
+    Motivator.innerHTML = "Motivator";
+    Motivator.style.fontSize = "1.5rem";
+    Motivator.style.fontWeight = "lighter";
+
+    let ContentCreator = document.createElement("p");
+    coingKnowledge.appendChild(ContentCreator);
+    ContentCreator.innerHTML = "Content Creator";
+    ContentCreator.style.fontSize = "1.5rem";
+    ContentCreator.style.fontWeight = "lighter";
+
+    // middle part
+    let middlePart = document.createElement("div");
+    mainDiv.appendChild(middlePart);
+    middlePart.innerHTML = "Skills";
+    middlePart.style.fontSize = "2rem";
+    middlePart.style.textAlign = "left";
+    middlePart.style.fontWeight = "bolder";
+    middlePart.style.marginLeft="17rem"
+
+    // add the p tag appendchild to coingknowledge:
+    let Web_development = document.createElement("p");
+    middlePart.appendChild(Web_development);
+    Web_development.innerHTML = "Web development";
+    Web_development.style.fontSize = "1.5rem";
+    Web_development.style.fontWeight = "lighter";
+
+    let Data_Analysis = document.createElement("p");
+    middlePart.appendChild(Data_Analysis);
+    Data_Analysis.innerHTML = "Data Analysis";
+    Data_Analysis.style.fontSize = "1.5rem";
+    Data_Analysis.style.fontWeight = "lighter";
+
+    let Data_visulization = document.createElement("p");
+    middlePart.appendChild(Data_visulization);
+    Data_visulization.innerHTML = "Data visulization";
+    Data_visulization.style.fontSize = "1.5rem";
+    Data_visulization.style.fontWeight = "lighter";
+
+    let Programming = document.createElement("p");
+    middlePart.appendChild(Programming);
+    Programming.innerHTML = "Programming";
+    Programming.style.fontSize = "1.5rem";
+    Programming.style.fontWeight = "lighter";
+
+    let Databases = document.createElement("p");
+    middlePart.appendChild(Databases);
+    Databases.innerHTML = "Data bases";
+    Databases.style.fontSize = "1.5rem";
+    Databases.style.fontWeight = "lighter";
+
+    let Developing_API = document.createElement("p");
+    middlePart.appendChild(Developing_API);
+    Developing_API.innerHTML = "Developing API";
+    Developing_API.style.fontSize = "1.5rem";
+    Developing_API.style.fontWeight = "lighter";
+
+    // right part
+    let Qualificaiton = document.createElement("div");
+    mainDiv.appendChild(Qualificaiton);
+    Qualificaiton.innerHTML = "Qualifications";
+    Qualificaiton.style.fontSize = "2rem";
+    Qualificaiton.style.textAlign = "left";
+    Qualificaiton.style.fontWeight = "bolder";
+  Qualificaiton.style.marginLeft="14rem"    
+
+    // add the p tag appendchild to coingknowledge:
+    let MSC_computer_scienece_ongoing = document.createElement("p");
+    Qualificaiton.appendChild(MSC_computer_scienece_ongoing);
+    MSC_computer_scienece_ongoing.innerHTML = "MSC_computer_scienece_ongoing";
+    MSC_computer_scienece_ongoing.style.fontSize = "1.5rem";
+    MSC_computer_scienece_ongoing.style.fontWeight = "lighter";
+
+    let BSC_information_and_communcation_eng = document.createElement("p");
+    Qualificaiton.appendChild(BSC_information_and_communcation_eng);
+    BSC_information_and_communcation_eng.innerHTML =
+      " BSC_information_and_communcation_eng";
+    BSC_information_and_communcation_eng.style.fontSize = "1.5rem";
+    BSC_information_and_communcation_eng.style.fontWeight = "lighter";
+
+    let MSC_food_technology = document.createElement("p");
+    Qualificaiton.appendChild(MSC_food_technology);
+    MSC_food_technology.innerHTML = "MSC_food_technology";
+    MSC_food_technology.style.fontSize = "1.5rem";
+    MSC_food_technology.style.fontWeight = "lighter";
+
+    let BSC_food_technology = document.createElement("p");
+    Qualificaiton.appendChild(BSC_food_technology);
+    BSC_food_technology.innerHTML = "BSC_food_technology";
+    BSC_food_technology.style.fontSize = "1.5rem";
+    BSC_food_technology.style.fontWeight = "lighter";
+
+   let footer=document.createElement("footer")
+   mainDiv.appendChild(footer);
+
+   footer.appendChild(coingKnowledge)
+   footer.appendChild(middlePart)
+   footer.appendChild(Qualificaiton)
+
+   footer.style.display="flex"
+
+  //  add footer :
+  
+  let mainFooter=document.createElement("div")
+  mainDiv.appendChild(mainFooter)
+   
+
+    let keywords=document.createElement("h3")
+    keywords.innerHTML="Keywords"
+    mainFooter.appendChild(keywords)
+    keywords.style.fontSize="2rem"
+    keywords.style.fontWeight="bolder"
+    keywords.style.display="flex"
+    
+    let tech=document.createElement("div")
+    mainFooter.appendChild(tech)
+    tech.style.display="flex"
+
+// create h3 elements :
+let html=document.createElement("div")
+html.innerHTML="#HTML"
+tech.appendChild(html)
+html.style.backgroundColor="yellow"
+html.style.fontSize="1.5rem"
+html.style.fontStyle="italic"
+html.style.borderRadius="50px"
+html.style.padding=".5rem"
+html.style.fontWeight="bolder"
+html.style.marginRight="1rem"
+
+
+
+let cplusplus=document.createElement("div")
+cplusplus.innerHTML="#C++"
+tech.appendChild(cplusplus)
+cplusplus.style.backgroundColor="blue"
+cplusplus.style.fontSize="1.5rem"
+cplusplus.style.fontStyle="italic"
+cplusplus.style.borderRadius="50px"
+cplusplus.style.padding=".5rem"
+cplusplus.style.fontWeight="bolder"
+cplusplus.style.marginRight="1rem"
+
+
+let javascript=document.createElement("div")
+javascript.innerHTML="#javscript"
+tech.appendChild(javascript)
+javascript.style.backgroundColor="green"
+javascript.style.fontSize="1.5rem"
+javascript.style.fontStyle="italic"
+javascript.style.borderRadius="50px"
+javascript.style.padding=".5rem"
+javascript.style.fontWeight="bolder"
+javascript.style.marginRight="1rem"
+
+
+let promise=document.createElement("div")
+promise.innerHTML="#Promise"
+tech.appendChild(promise)
+promise.style.backgroundColor="brown"
+promise.style.fontSize="1.5rem"
+promise.style.fontStyle="italic"
+promise.style.borderRadius="50px"
+promise.style.padding=".5rem"
+promise.style.fontWeight="bolder"
+promise.style.marginRight="1rem"
+
+let api=document.createElement("div")
+api.innerHTML="#API"
+tech.appendChild(api)
+api.style.backgroundColor="lightgreen"
+api.style.fontSize="1.5rem"
+api.style.fontStyle="italic"
+api.style.borderRadius="50px"
+api.style.padding=".5rem"
+api.style.fontWeight="bolder"
+api.style.marginRight="1rem"
+
+let pandas=document.createElement("div")
+pandas.innerHTML="#pandas"
+tech.appendChild(pandas)
+pandas.style.backgroundColor="lightpink"
+pandas.style.fontSize="1.5rem"
+pandas.style.fontStyle="italic"
+pandas.style.borderRadius="50px"
+pandas.style.padding=".5rem"
+pandas.style.fontWeight="bolder"
+pandas.style.marginRight="1rem"
+
+  
+ 
+
+ 
+
+
   </script>
 </html>
