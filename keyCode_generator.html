@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // main div:
+    document.body.style.boxSizing="border-box"
+    let mainDiv = document.createElement("div");
+    document.body.appendChild(mainDiv);
+
+    //create button and it's contain two p tag :
+    let button = document.createElement("button");
+    let firstP = document.createElement("p");
+    let secoundP = document.createElement("p");
+
+    // give parent button parent child
+    mainDiv.appendChild(button);
+
+    // give the firstp parent child
+    button.appendChild(firstP);
+    firstP.innerHTML = "Enter any key";
+
+    // give the secound parent child
+    button.appendChild(secoundP);
+
+    firstP.style.marginLeft = "30px";
+    firstP.style.margin="20px"
+    secoundP.style.backgroundColor = "white";
+
+ 
+   button.style.justifyContent="center"
+
+    let p = document.createElement("P");
+    mainDiv.appendChild(p);
+
+    mainDiv.style.width = "900px";
+    mainDiv.style.margin = "0 auto";
+     
+
+    button.style.marginTop = "5rem";
+    button.style.fontSize = "2rem";
+    button.style.border = "none";
+    button.style.borderRadius = "60px";
+    button.style.cursor = "pointer";
+    button.style.width = "600px";
+    button.style.backgroundColor = "#272829";
+    button.style.color = "#D8D9DA";
+    button.style.fontWeight = "bolder";
+    button.style.outline = "none";
+    button.style.boxShadow = "10px 0px 100px 0px white";
+    button.style.display = "flex";
+
+    button.style.marginLeft="18%"
+
+    document.body.style.backgroundColor = "black";
+
+    // add events
+
+    document.addEventListener("keydown", (e) => {
+      secoundP.innerHTML = e.key + " " + "Key";
+      firstP.innerHTML = "You Pressed";
+      p.innerHTML = e.keyCode;
+
+      secoundP.style.color = "green";
+
+      // add style when i press any button :
+      p.style.fontSize = "3rem";
+      p.style.textAlign = "center";
+      p.style.borderRadius = "50px";
+      p.style.backgroundColor = "white";
+      p.style.color = "green";
+      p.style.width = "100px";
+      p.style.height = "100px";
+      p.style.margin = "5rem auto";
+      p.style.display = "flex";
+      p.style.alignItems = "center";
+      p.style.justifyContent = "center";
+      p.style.boxShadow = "10px 0px 100px 0px white";
+
+      p.style.fontWeight = "bolder";
+
+      firstP.style.alignItems="center"
+      firstP.style.justifyContent="center"
+      firstP.style.display="flex"
+      firstP.style.paddingTop="20px"
+
+      secoundP.style.color = "green";
+      secoundP.style.borderRadius = "30px";
+      secoundP.style.padding = "10px 20px";
+      secoundP.style.marginLeft="1rem"
+    });
+  </script>
+</html>
